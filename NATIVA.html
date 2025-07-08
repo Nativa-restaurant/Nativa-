@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nativa, restaurante de alta cocina que fusiona sabores autóctonos con técnicas modernas.">
+  <meta name="keywords" content="restaurante, alta cocina, gourmet, sabores autóctonos, Nativa">
+  <meta name="author" content="Equipo Nativa">
+  <title>Nativa | Alta Cocina Autóctona</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff; /* Azul claro */
+      color: #333;
+    }
+
+    header {
+      background-color: #1e3a5f; /* Azul oscuro */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background-color: #0077b6; /* Azul intermedio */
+      padding: 6rem 2rem;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn_reserva {
+      background-color: #1e3a5f; /* Azul oscuro */
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .btn_reserva:hover {
+      background-color: #004a75; /* Azul más oscuro */
+    }
+
+    section {
+      padding: 3rem 2rem;
+    }
+
+    h2 {
+      color: #0077b6; /* Azul intermedio */
+    }
+
+    footer {
+      background-color: #1e3a5f; /* Azul oscuro */
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .menu-card {
+      background-color: #ffffff; /* Blanco */
+      border: 2px solid #0077b6; /* Azul intermedio */
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1rem;
+      display: inline-block;
+      width: 250px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-card h3 {
+      font-size: 1.8rem;
+      color: #0077b6; /* Azul intermedio */
+    }
+
+    .menu-card p {
+      color: #333;
+      font-size: 1.2rem;
+    }
+
+    .season-section {
+      margin-bottom: 3rem;
+    }
+
+    #menu-items {
+      display: none; /* Ocultar el menú inicialmente */
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="https://via.placeholder.com/150x50?text=Nativa" alt="Logo Nativa" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#menu" id="show-menu">Carta</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <h1>Bienvenidos a Nativa</h1>
+      <p>Una experiencia culinaria única, con raíces en la tierra y mirada al futuro.</p>
+     
+    </section>
+
+    <section id="menu">
+      <h2>Nuestra Carta</h2>
+      <div id="menu-items"></div> <!-- Aquí se cargarán los menús -->
+    </section>
+
+<section id="nosotros">
+  <h2>Sobre Nosotros</h2>
+  <p>
+    En <strong>Nativa</strong>, celebramos la riqueza de la cocina autóctona argentina a través de una propuesta gastronómica innovadora y sofisticada. Trabajamos exclusivamente con ingredientes locales seleccionados, fusionando técnicas ancestrales y de vanguardia para crear experiencias culinarias auténticas y memorables.
+  </p>
+  <p>
+    Nuestro equipo de chefs y sommeliers se inspira en la diversidad natural y cultural de nuestro país para diseñar platos que despiertan los sentidos, honran nuestras raíces y trascienden lo tradicional. En Nativa, cada detalle está pensado para conectar con lo esencial: el sabor, la tierra y la emoción.
+  </p>
+</section>
+
+
+
+    <section id="contacto">
+      <h2>Reservas y Contacto</h2>
+      <p>📍 Dirección: Av. Gourmet 123, Buenos Aires</p>
+      <p>📞 Teléfono: +54 11 1234-5678</p>
+      <p>📧 Email: reservas@nativa.com</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nativa - Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Las 4 cartas de menú separadas por estación
+    const menus = {
+      primavera: {
+        entradas: [
+          { nombre: "Empanadas de Carne", descripcion: "Con cebolla de verdeo y un toque de pimentón" },
+          { nombre: "Provoleta", descripcion: "Queso provolone con orégano y aceite de oliva" }
+        ],
+        platos: [
+          { nombre: "Trucha a la Parrilla", descripcion: "Con salsa de limón y alcaparras" },
+          { nombre: "Tartar de Atún", descripcion: "Con aguacate y salsa de soja" }
+        ],
+        postres: [
+          { nombre: "Helado de Dulce de Leche", descripcion: "Con un toque de chocolate amargo" },
+          { nombre: "Panqueques con Dulce de Leche", descripcion: "Acompañados con crema chantilly" }
+        ],
+        bebidas: [
+          { nombre: "Cerveza Artesanal IPA", descripcion: "Fresca, con toques de frutos cítricos" },
+          { nombre: "Vino Blanco Torrontés", descripcion: "Con notas florales y afrutadas" }
+        ]
+      },
+      verano: {
+        entradas: [
+          { nombre: "Bruschettas de Tomate", descripcion: "Con ajo, albahaca y aceite de oliva" },
+          { nombre: "Ensalada de Quinoa", descripcion: "Con verduras frescas y aderezo de limón" }
+        ],
+        platos: [
+          { nombre: "Ceviche de Langostinos", descripcion: "Con mango y cilantro fresco" },
+          { nombre: "Tartar de Salmón", descripcion: "Con aguacate y salsa de soya" }
+        ],
+        postres: [
+          { nombre: "Flan Casero", descripcion: "Con dulce de leche y crema" },
+          { nombre: "Helado de Frutos Rojos", descripcion: "Con una base cremosa y fresca" }
+        ],
+        bebidas: [
+          { nombre: "Cóctel de Mojito", descripcion: "Con ron blanco y hierbabuena fresca" },
+          { nombre: "Cóctel de Maracuyá", descripcion: "Con ron y jugo natural de maracuyá" }
+        ]
+      },
+      otoño: {
+        entradas: [
+          { nombre: "Bocaditos de Empanadas de Jamón y Queso", descripcion: "Crujientes y doradas" },
+          { nombre: "Choripán", descripcion: "Con salsa chimichurri y pan artesanal" }
+        ],
+        platos: [
+          { nombre: "Lomo de Res con Salsa de Setas", descripcion: "Acompañado de puré de papas y zanahorias" },
+          { nombre: "Ragú de Cordero", descripcion: "Cocinado a fuego lento con especias" }
+        ],
+        postres: [
+          { nombre: "Tarta de Manzana", descripcion: "Con crema pastelera y canela" },
+          { nombre: "Pudín de Pan", descripcion: "Acompañado de helado de vainilla" }
+        ],
+        bebidas: [
+          { nombre: "Vino Tinto Malbec", descripcion: "Con notas de frutos rojos" },
+          { nombre: "Whisky Ahumado", descripcion: "Con un toque suave de humo" }
+        ]
+      },
+      invierno: {
+        entradas: [
+          { nombre: "Croquetas de Jamón y Queso", descripcion: "Crujientes por fuera, cremosas por dentro" },
+          { nombre: "Sopa de Calabaza", descripcion: "Con crema de leche y un toque de curry" }
+        ],
+        platos: [
+          { nombre: "Goulash de Carne", descripcion: "Con papas y zanahorias, cocinado a fuego lento" },
+          { nombre: "Estofado de Res", descripcion: "Con vegetales de estación y especias" }
+        ],
+        postres: [
+          { nombre: "Torta de Chocolate", descripcion: "Con crema de cacao y nueces" },
+          { nombre: "Budín de Naranjas", descripcion: "Con crema inglesa de vainilla" }
+        ],
+        bebidas: [
+          { nombre: "Café Espresso", descripcion: "Con crema suave y toque de cacao" },
+          { nombre: "Chocolate Caliente", descripcion: "Con un toque de canela y crema chantilly" }
+        ]
+      }
+    };
+
+    // Función para cargar todos los menús por estaciones
+    function loadMenu() {
+      const menuContainer = document.getElementById("menu-items");
+
+      // Generar el HTML para todas las estaciones
+      let menuHTML = '';
+      for (const season in menus) {
+        menuHTML += `<div class="season-section">
+                        <h3>${season.charAt(0).toUpperCase() + season.slice(1)}</h3>
+                        <div class="menu-card">
+                          <h4>Entradas</h4>`;
+        menus[season].entradas.forEach(plato => {
+          menuHTML += `<p><strong>${plato.nombre}</strong>: ${plato.descripcion}</p>`;
+        });
+
+        menuHTML += `<h4>Platos Principales</h4>`;
+        menus[season].platos.forEach(plato => {
+          menuHTML += `<p><strong>${plato.nombre}</strong>: ${plato.descripcion}</p>`;
+        });
+
+        menuHTML += `<h4>Postres</h4>`;
+        menus[season].postres.forEach(plato => {
+          menuHTML += `<p><strong>${plato.nombre}</strong>: ${plato.descripcion}</p>`;
+        });
+
+        menuHTML += `<h4>Bebidas</h4>`;
+        menus[season].bebidas.forEach(bebida => {
+          menuHTML += `<p><strong>${bebida.nombre}</strong>: ${bebida.descripcion}</p>`;
+        });
+
+        menuHTML += `</div></div>`;
+      }
+      
+      menuContainer.innerHTML = menuHTML;
+    }
+
+    // Mostrar el menú al hacer clic en "Carta"
+    document.getElementById("show-menu").addEventListener("click", function(e) {
+      e.preventDefault();
+      const menuItems = document.getElementById("menu-items");
+      menuItems.style.display = (menuItems.style.display === 'block') ? 'none' : 'block';
+    });
+
+    // Llamar a la función cuando la página se carga
+    window.onload = loadMenu;
+  </script>
+</body>
+</html>
